@@ -10,31 +10,6 @@ namespace WebMvc.Controllers
 {
     public class HomeController : Controller
     {
-        private static IList<Pessoa> PessoaList = new List<Pessoa> 
-    {
-        new Pessoa { Id = 1, Nome = "Kapone"},
-        new Pessoa { Id = 2, Nome = "Guimaraes"},
-        new Pessoa { Id = 3, Nome = "Bruno"}
-    };
-        public IList<Pessoa> GetPessoas()
-
-        {
-            return PessoaList;
-        }
-
-        public Pessoa AddPessoa(string nome)
-        { 
-            try {
-                var pessoa = new Pessoa {Nome = nome};
-                pessoa.Id = PessoaList.Max(p => p.Id) + 1;
-                PessoaList.Add(pessoa);
-                return pessoa;
-            }   catch{}
-
-             return null;
-
-    }
-        
         public IActionResult Index()
         {
             return View();
